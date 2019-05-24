@@ -1,0 +1,5 @@
+package com.chainsys.jobportal.service;
+
+public class AddVacancyService {
+
+}

@@ -1,0 +1,14 @@
+package com.chainsys.jobportal.service;
+
+import com.chainsys.jobportal.dao.UserJobInfoDAO;
+import com.chainsys.jobportal.model.UserJobInfo;
+
+public class UserJobInfoService {
+
+
+	public void applyJobInfo(UserJobInfo userJobInfo) {
+		UserJobInfoDAO userJobInfoDAO = new UserJobInfoDAO();
+		userJobInfoDAO.applyJobInfo(userJobInfo);
+	}
+
+}

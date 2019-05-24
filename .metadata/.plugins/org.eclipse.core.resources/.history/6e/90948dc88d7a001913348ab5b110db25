@@ -1,0 +1,39 @@
+package com.chainsys.jobportal.dao;
+
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.chainsys.jobportal.model.Registration;
+import com.chainsys.jobportal.util.ConnectionUtil;
+
+public class UpdateProfileDAO {
+	public void addRegisteration(Registration register) throws Exception {
+		try {
+			java.sql.Connection connection = ConnectionUtil.getConnection();
+			String sql = "insert into trn_users(user_id,user_name,email,create_password,phone_no,created_date) values(trn_user_id_seq.NEXTVAL,?,?,?,?,?)";
+			PreparedStatement preparedStatement = connection
+					.prepareStatement(sql);
+			preparedStatement.setString(1, register.getName());
+			preparedStatement.setString(2, register.getEmail());
+			preparedStatement.setString(3, register.getPassword());
+			preparedStatement.setLong(4, register.getPhoneno());
+			preparedStatement.setDate(5, Date.valueOf(register.getCreateddate()));
+			int rows = preparedStatement.executeUpdate();
+			if (rows > 0) {
+				boolean success = true;
+				String sql1 = "insert into login values(trn_user_id_seq.currval,?,?)";
+				PreparedStatement preparedStatement2 = connection.prepareStatement(sql1);
+				preparedStatement2.setString(1, register.getEmail());
+				preparedStatement2.setString(2, register.getPassword());
+				preparedStatement2.executeUpdate();
+				}
+			ConnectionUtil.close(connection, preparedStatement, null);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new Exception("unable to insert");
+		}
+	}
+	
+	
+}

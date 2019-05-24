@@ -1,0 +1,11 @@
+package com.chainsys.jobportal.service;
+
+import com.chainsys.jobportal.dao.UpdateProfileDAO;
+import com.chainsys.jobportal.model.Profile;
+
+public class ProfileService {
+	public void updateProfile(Profile profile) {
+			UpdateProfileDAO updateProfileDAO = new UpdateProfileDAO();
+			 updateProfileDAO.updateProfile(profile);
+	}
+}

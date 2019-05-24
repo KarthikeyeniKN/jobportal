@@ -1,0 +1,51 @@
+package com.chainsys.jobportal.dao;
+
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.chainsys.jobportal.model.UserJobInfo;
+import com.chainsys.jobportal.util.ConnectionUtil;
+
+public class UserJobInfoDAO {
+	public void applyJobInfo(UserJobInfo userJobInfo) throws Exception {
+		try {
+			java.sql.Connection connection = ConnectionUtil.getConnection();
+			String sql = "insert into trn_user_jobinfo(jobinfo_id,user_id,company_id,save_job,apply_job,created_by,created_date) values(jobinfo_id_seq.NEXTVAL,?,?,?,?,?,?)";
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, userJobInfo.getUser_id());
+			preparedStatement.setInt(2, userJobInfo.getCompany_id());
+			preparedStatement.setInt(3, userJobInfo.getSave_job());
+			preparedStatement.setInt(4, userJobInfo.getApply_job());
+			preparedStatement.setInt(5, userJobInfo.getCreated_by());
+			preparedStatement.setDate(6, Date.valueOf(userJobInfo.getCreated_date()));
+			@SuppressWarnings("unused")
+			int rows = preparedStatement.executeUpdate();
+			ConnectionUtil.close(connection, preparedStatement, null);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new Exception("unable to insert");
+		}
+	}
+
+	public void saveJobInfo(UserJobInfo userJobInfo) throws Exception {
+		try {
+			java.sql.Connection connection = ConnectionUtil.getConnection();
+			String sql = "insert into trn_user_jobinfo(jobinfo_id,user_id,company_id,save_job,apply_job,created_by,created_date) values(jobinfo_id_seq.NEXTVAL,?,?,?,?,?,?)";
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, userJobInfo.getUser_id());
+			preparedStatement.setInt(2, userJobInfo.getCompany_id());
+			preparedStatement.setInt(3, userJobInfo.getSave_job());
+			preparedStatement.setInt(4, userJobInfo.getApply_job());
+			preparedStatement.setInt(5, userJobInfo.getCreated_by());
+			preparedStatement.setDate(6, Date.valueOf(userJobInfo.getCreated_date()));
+			@SuppressWarnings("unused")
+			int rows = preparedStatement.executeUpdate();
+			ConnectionUtil.close(connection, preparedStatement, null);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new Exception("unable to insert");
+		}
+		
+	}
+}

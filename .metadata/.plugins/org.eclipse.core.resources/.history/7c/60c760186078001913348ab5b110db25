@@ -1,0 +1,14 @@
+package com.chainsys.jobportal.dao;
+
+import com.chainsys.jobportal.model.UserJobInfo;
+
+public class UserJobInfoDAO {
+
+	
+
+	public void applyJobInfo(UserJobInfo userJobInfo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,16 @@
+
+May 20, 2019 18:00:16.64 NEW SESSION
+May 20, 2019 18:00:16.64 [7612:28724:0520/180016.591:ERROR:network_change_notifier_win.cc(156)] WSALookupServiceBegin failed with: 0
+May 20, 2019 18:31:46.79 [7612:27016:0520/183146.791:ERROR:network_change_notifier_win.cc(156)] WSALookupServiceBegin failed with: 0
+May 20, 2019 18:31:46.82 [7612:27016:0520/183146.827:ERROR:network_change_notifier_win.cc(156)] WSALookupServiceBegin failed with: 0
+May 20, 2019 18:45:51.80 [7612:27016:0520/184551.804:ERROR:network_change_notifier_win.cc(156)] WSALookupServiceBegin failed with: 0
+May 20, 2019 18:45:53.76 [7612:27016:0520/184553.760:ERROR:network_change_notifier_win.cc(156)] WSALookupServiceBegin failed with: 0
+May 20, 2019 18:45:54.28 [7612:27016:0520/184554.276:ERROR:network_change_notifier_win.cc(156)] WSALookupServiceBegin failed with: 0
+May 20, 2019 18:45:55.28 [7612:27016:0520/184555.284:ERROR:network_change_notifier_win.cc(156)] WSALookupServiceBegin failed with: 0
+May 20, 2019 19:08:23.59 [7612:29220:0520/190823.592:ERROR:browser_process_sub_thread.cc(217)] Waited 345 ms for network service
+
+May 21, 2019 16:52:05.28 NEW SESSION
+May 21, 2019 16:52:05.28 [GFX1]: Potential driver version mismatch ignored due to missing DLLs 0.0.0.0 and 0.0.0.0
+May 21, 2019 16:53:06.33 1558437786328	addons.productaddons	WARN	Failed downloading XML, status: 0, reason: error
+May 21, 2019 16:54:38.04 [GFX1]: Potential driver version mismatch ignored due to missing DLLs 0.0.0.0 and 0.0.0.0
+May 21, 2019 16:55:38.71 1558437938710	addons.productaddons	WARN	Failed downloading XML, status: 0, reason: error

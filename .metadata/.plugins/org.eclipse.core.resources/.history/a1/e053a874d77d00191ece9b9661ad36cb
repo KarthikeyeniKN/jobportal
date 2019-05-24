@@ -1,0 +1,8 @@
+package com.chainsys.jobportal.exception;
+
+public class AddVaccancyException extends JobPortalException{
+
+	public AddVaccancyException(String s) {
+		super(s);
+	}
+}

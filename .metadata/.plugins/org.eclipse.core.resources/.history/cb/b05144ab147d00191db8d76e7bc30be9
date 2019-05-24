@@ -1,0 +1,9 @@
+package com.chainsys.jobportal.exception;
+
+
+@SuppressWarnings("serial")
+public class PhoneNoException extends Exception {
+	public PhoneNoException(String s) {
+		super(s);
+	}
+}

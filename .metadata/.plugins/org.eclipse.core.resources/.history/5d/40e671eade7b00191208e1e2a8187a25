@@ -1,0 +1,17 @@
+package com.chainsys.jobportal.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.chainsys.jobportal.dao.ViewNotificationDAO;
+import com.chainsys.jobportal.model.AddVaccancy;
+
+public class AppliedService {
+	public List<AddVaccancy> appliedUserInfo() {
+		ViewNotificationDAO viewNotificationDAO = new ViewNotificationDAO();
+		ArrayList<AddVaccancy> savedList = viewNotificationDAO.findSavedJob(userId);
+		return savedList;
+	}
+	}
+
+}

@@ -1,0 +1,42 @@
+package com.chainsys.jobportal.servlet;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.chainsys.jobportal.dao.UserSendMail;
+
+/**
+ * Servlet implementation class AdminSendMailServlet
+ */
+@WebServlet("/AdminSendMailServlet")
+public class AdminSendMailServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AdminSendMailServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String mail1= (String) request.getParameter("Username");
+		String subject1 = "Job shortlisted information mail";
+		String content1 = "<html><head></head><body>Your have been shortlisted for this job</body></html>";
+		UserSendMail.sendHtmlMail1(subject1, content1, mail1);
+		RequestDispatcher rd = request.getRequestDispatcher("AppliedServlet");
+		rd.forward(request, response);
+	}
+}

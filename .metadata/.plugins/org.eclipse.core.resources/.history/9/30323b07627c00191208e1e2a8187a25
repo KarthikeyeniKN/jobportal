@@ -1,0 +1,7 @@
+package com.chainsys.jobportal.exception;
+
+public class PhoneNoException extends Exception{
+public PhoneNoException(String s) {
+		super(s);
+	}
+}

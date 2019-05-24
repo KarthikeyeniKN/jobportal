@@ -1,0 +1,51 @@
+package com.chainsys.jobportal.dao;
+
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.chainsys.jobportal.model.Profile;
+import com.chainsys.jobportal.util.ConnectionUtil;
+
+public class UpdateProfileDAO {
+
+	public void updateProfile(Profile profile) throws Exception {
+		try {
+			java.sql.Connection connection = ConnectionUtil.getConnection();
+			String sql = "insert into trn_users_profile(profile_id,date_of_birth,gender,address,pincode,marila_status,education_degree,yr_of_completion,college_name,"
+					+ "relocate,user_id,created_by,created_date,modified_by,modified_date)"
+					+ " values(trn_profile_id_seq.NEXTVAL,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setDate(1, Date.valueOf(profile.getDob()));
+			preparedStatement.setString(2, profile.getGender());
+			preparedStatement.setString(3, profile.getAddress());
+			preparedStatement.setInt(4, profile.getPincode());
+			preparedStatement.setString(5, profile.getMarial_status());
+			preparedStatement.setString(6, profile.getEducation_degree());
+			preparedStatement.setInt(7, profile.getYr_of_completion());
+			preparedStatement.setString(8, profile.getCollege_name());
+			preparedStatement.setString(9, profile.getRelocate());
+			preparedStatement.setInt(10, profile.getUser_id());
+			preparedStatement.setInt(11, profile.getCreated_by());
+			preparedStatement.setDate(12, Date.valueOf(profile.getCreateddate()));
+			preparedStatement.setInt(13, profile.getModified_by());
+			preparedStatement.setDate(14, Date.valueOf(profile.getModified_date()));
+			System.out.println("sucess");
+			int rows = preparedStatement.executeUpdate();
+			/*
+			 * if (rows > 0) { boolean success = true; String sql1 =
+			 * "insert into login values(trn_user_id_seq.currval,?,?)"; PreparedStatement
+			 * preparedStatement2 = connection.prepareStatement(sql1);
+			 * preparedStatement2.setString(1, register.getEmail());
+			 * preparedStatement2.setString(2, register.getPassword());
+			 * preparedStatement2.executeUpdate(); }
+			 */
+			ConnectionUtil.close(connection, preparedStatement, null);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new Exception("unable to insert");
+		}
+
+	}
+
+}

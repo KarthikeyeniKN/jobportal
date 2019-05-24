@@ -1,0 +1,5 @@
+package com.chainsys.jobportal.dao;
+
+public class UserJobInfoDAO {
+
+}

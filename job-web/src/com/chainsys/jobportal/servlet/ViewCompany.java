@@ -1,0 +1,60 @@
+package com.chainsys.jobportal.servlet;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.chainsys.jobportal.dao.AddVaccancyDAO;
+import com.chainsys.jobportal.model.AddVaccancy;
+
+/**
+ * Servlet implementation class ViewCompany
+ */
+@WebServlet("/ViewCompany")
+public class ViewCompany extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private String companyname;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ViewCompany() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		 
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		companyname=request.getParameter("companyname");
+		System.out.println(companyname);
+		AddVaccancyDAO addVaccancydao = new AddVaccancyDAO();
+		try {
+			ArrayList<AddVaccancy> viewCompany = addVaccancydao.viewCompanyInfo(companyname);
+			request.setAttribute("VIEWCOMPANY", viewCompany);
+			//System.out.println(viewCompany);
+			RequestDispatcher rd = request
+					.getRequestDispatcher("companyinfo.jsp");
+			rd.forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

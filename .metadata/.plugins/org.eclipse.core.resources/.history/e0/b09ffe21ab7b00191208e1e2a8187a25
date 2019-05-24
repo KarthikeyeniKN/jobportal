@@ -1,0 +1,19 @@
+package com.chainsys.jobportal.service;
+
+import com.chainsys.jobportal.dao.RegistrationDAO;
+import com.chainsys.jobportal.model.Registration;
+
+public class RegisterationService {
+
+	public void addRegister(Registration register) throws Exception {
+	   RegistrationDAO registerationDAO = new RegistrationDAO();
+	   registerationDAO.addRegisteration(register);
+	}
+
+	public boolean check(int id) {
+		 RegistrationDAO registerationDAO = new RegistrationDAO();
+		   registerationDAO.checkUser(id);
+		return false;
+	}
+	
+}

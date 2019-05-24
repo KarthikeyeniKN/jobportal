@@ -1,0 +1,14 @@
+package com.chainsys.jobportal.model;
+
+import java.time.LocalDate;
+
+public class UserProject {
+private String title;
+private String duration;
+private String details;
+private String skills;
+private int user_id;
+private LocalDate created_date;
+private int modified_by;
+private LocalDate modified_date;
+}
